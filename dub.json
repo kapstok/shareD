@@ -1,0 +1,18 @@
+{
+	"authors": [
+		"Jan Allersma"
+	],
+	"copyright": "Copyright © 2023, Jan Allersma",
+	"dependencies": {
+		"d2sqlite3": "~>1.0.0",
+		"secured": "~>2.0.2"
+	},
+	"description": "A minimal D application.",
+	"license": "proprietary",
+	"name": "shared",
+	"sourcePaths": ["source"],
+	"dflags": ["-L-lstdc++"],
+	"lflags": ["-Lbuild/Debug/lib", "-Lbuild/Release/lib", "-Lnappgui/inc/osapp", "-Lnappgui/inc/window", "-lShareDFrontend"],
+	"targetType": "executable",
+	"preBuildCommands": ["./frontend-build-helper"]
+}
