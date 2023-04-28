@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "osmain.h": "c",
-        "osmain_gtk.h": "c",
-        "osmain.hxx": "c",
-        "osmain_osx.h": "c"
-    }
-}

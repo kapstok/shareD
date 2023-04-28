@@ -1,0 +1,10 @@
+#/bin/bash
+
+pushd api && \
+dub build && \
+popd && \
+cmake -B build && \
+cmake --open build && \
+cd build && \
+make && \
+cd ..

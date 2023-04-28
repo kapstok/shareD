@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/shared-api
+shared-api.so
+shared-api.dylib
+shared-api.dll
+shared-api.a
+shared-api.lib
+shared-api-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst

@@ -4,6 +4,8 @@
 
 typedef struct _app_t App;
 
+char foo();
+
 struct _app_t {
     Window *window;
     TextView *text;
@@ -59,7 +61,7 @@ static App *i_create(void) {
     Panel *panel = i_panel(app);
     app->window = window_create(ekWINDOW_STD);
     window_panel(app->window, panel);
-    window_title(app->window, "Hello, World!");
+    window_title(app->window, /*"Hello, World!"*/new char(foo()));
     window_origin(app->window, v2df(500, 200));
     window_OnClose(app->window, listener(app, i_OnClose, App));
     window_show(app->window);
@@ -74,23 +76,19 @@ static void i_destroy(App **app) {
 }
 
 /*---------------------------------------------------------------------------*/
-
-static void init() {
-    //osmain(i_create, i_destroy, "", App);
-    #if defined(__LINUX__) // TODO: Add options for other OSes as well. See osmain.h.
-    FUNC_CHECK_APP_CREATE(/*func_create*/i_create, /*type*/App),
-    FUNC_CHECK_DESTROY(/*func_destroy*/i_destroy, /*type*/App),
-    osmain_imp(
-               (uint32_t)/*argc*/0, (char_t**)/*argv*/NULL, NULL, 0.,
-               (FPtr_app_create)/*func_create*/i_create,
-               (FPtr_app_update)NULL,
-               (FPtr_destroy)/*func_destroy*/i_destroy,
-               (char_t*)/*options*/"");
-    #endif
-    //std::cout << "Foobar!";
-    //return 0;
-}
-
-void foo() {
-    init();
-}
+osmain(i_create, i_destroy, "", App)
+// static void init() {
+//     //osmain(i_create, i_destroy, "", App);
+//     #if defined(__LINUX__) // TODO: Add options for other OSes as well. See osmain.h.
+//     FUNC_CHECK_APP_CREATE(/*func_create*/i_create, /*type*/App),
+//     FUNC_CHECK_DESTROY(/*func_destroy*/i_destroy, /*type*/App),
+//     osmain_imp(
+//                (uint32_t)/*argc*/0, (char_t**)/*argv*/NULL, NULL, 0.,
+//                (FPtr_app_create)/*func_create*/i_create,
+//                (FPtr_app_update)NULL,
+//                (FPtr_destroy)/*func_destroy*/i_destroy,
+//                (char_t*)/*options*/"");
+//     #endif
+//     //std::cout << "Foobar!";
+//     //return 0;
+// }

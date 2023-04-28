@@ -1,0 +1,15 @@
+{
+	"authors": [
+		"Jan Allersma"
+	],
+	"copyright": "Copyright © 2023, Jan Allersma",
+	"dependencies": {
+		"d2sqlite3": "~>1.0.0",
+		"secured": "~>2.0.2"
+	},
+	"description": "A minimal D application.",
+	"license": "proprietary",
+	"name": "shared-api",
+	"targetType": "dynamicLibrary",
+	"targetPath": "../build"
+}

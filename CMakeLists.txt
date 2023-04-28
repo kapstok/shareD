@@ -37,8 +37,15 @@ staticLib("inet" "inet" "core" NRC_NONE)
 #desktopApp("UrlImg" "howto/urlimg" "osapp;inet" NRC_EMBEDDED)
 
 # Your projects here!
-#desktopApp("ShareDFrontend" "frontend" "osapp" NRC_EMBEDDED)
-staticLib("ShareDFrontend" "frontend" "osapp" NRC_EMBEDDED "C++14")
+dynamicLib("shared-api" "build" "" NRC_NONE)
+#add_library(Api SHARED IMPORTED)
+#set_target_properties(
+#    Api PROPERTIES
+#    IMPORTED_LOCATION_DEBUG "build"
+#)
+desktopApp("ShareD" "app" "osapp;shared-api" NRC_EMBEDDED)
+#target_link_libraries(ShareD PRIVATE Api)
+#staticLib("ShareDFrontend" "frontend" "osapp" NRC_EMBEDDED "C++14")
 #staticLib("ShareDFrontend" "frontend" "osapp" NRC_EMBEDDED "C90") # Apparently the lib itself will be linked as CXX lib
 
 generateSolution()

@@ -28,3 +28,17 @@ sudo apt install libsqlite3-dev libssl-dev
 ```bash
 dub run
 ```
+
+## Notes
+
+https://nappgui.com/en/guide/resources.html
+https://nappgui.com/en/start/start.html
+https://dlang.org/spec/cpp_interface.html
+https://dlang.org/phobos/std_string.html#.toStringz
+
+Ik heb een aantal wijzigingen in de submodule gemaakt:
+
+- CMakeFunctions.cmake aangepast en in de hoofddirectory gezet, maar die moet
+dus in de module staan.
+- Ik heb de shared library ook in `nappgui/bin/gcc11_gtk3_x64/Debug`,
+`nappgui/lib/gcc11_gtk3_x64/Debug` en `nappgui/lib/gcc11_gtk3_x64/Release` gezet.
